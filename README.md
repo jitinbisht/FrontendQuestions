@@ -1,2 +1,2 @@
-# FrontendInterview2k19
+# Frontend Questions
 Interview questions for frontend developers 
