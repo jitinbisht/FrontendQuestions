@@ -1,0 +1,7 @@
+ const string = 'Hello World!';
+
+
+const reversedString = (str) => str.split('').reduce((result,character) => character + result);
+
+
+console.log(reversedString(string))
