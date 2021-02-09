@@ -28,7 +28,7 @@ const twoNumberSum = (array, targetSum) => {
     } else if(array[left] + array[right] < targetSum) {
       left++;
     } else {
-      right++;
+      right--;
     }
   }
 }
