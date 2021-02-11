@@ -5,7 +5,7 @@ https://www.freecodecamp.org/news/pipe-and-compose-in-javascript-5b04004ac937/
 const addTen = (num) => num + 10;
 const multiply30 = (num) => num * 30;
 
-function pipe(){
+function pipe(...functions){
   return function(value){
     return functions.reduce((currentValue, currentFunction) => {
       return currentFunction(currentValue)
@@ -22,7 +22,7 @@ console.log(pipe(addTen,multiply)(20))
 const addTen = (num) => num + 10;
 const multiply30 = (num) => num * 30;
 
-function compose(){
+function compose(...functions){
   return function(value){
     return functions.reduceRight((currentValue, currentFunction) => {
       return currentFunction(currentValue)
