@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=7VAU_J3BwIc
+
+
 var test={a:{b:{c:20}}};
 
 function get(mainObj, path, def=null){
