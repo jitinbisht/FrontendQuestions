@@ -12,7 +12,7 @@ function pipe(...functions){
     }, value)
   }
 }
-console.log(pipe(addTen,multiply)(20))
+console.log(pipe(addTen,multiply30)(20))
 //O/P: 900
 
 ============================================
@@ -29,5 +29,5 @@ function compose(...functions){
     }, value)
   }
 }
-console.log(compose(addTen,multiply)(20))
+console.log(compose(addTen,multiply30)(20))
 //o/p: 610
