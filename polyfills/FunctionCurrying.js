@@ -1,5 +1,5 @@
 //Reference: https://medium.com/better-programming/currying-inside-javascript-a19f29600880#:~:text=Currying%20is%20an%20advanced%20technique,(s)%20to%20the%20function.
-
+// Currying is the process of taking in a function that accepts multiple parameters as input and returning a function that accepts a single argument.
 function curry(fn){
   return function curried(...args){
     const done = args.length >= fn.length;
