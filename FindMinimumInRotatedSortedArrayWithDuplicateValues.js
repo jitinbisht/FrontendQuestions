@@ -1,4 +1,5 @@
 #Find Minimum in Rotated Sorted Array II. (with Duplicate values in an array)
+//https://www.youtube.com/watch?v=j3187M1P2Xg
 
 var findMin = function(nums) {
     let start = 0;
