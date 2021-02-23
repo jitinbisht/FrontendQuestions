@@ -53,7 +53,7 @@ function deepEqual(object1, object2) {
   if (keys1.length !== keys2.length) {
     return false;
   }
-  for (const key of keys1) {
+  for (const key in keys1) {
     const val1 = object1[key];
     const val2 = object2[key];
     const areObjects = isObject(val1) && isObject(val2);
