@@ -1,13 +1,11 @@
-function debounce(fun, delay) {
-  let timeout;
-  return function executeFunction(...args) {
-    const laterToExecute = () => {
-      clearTimeout(timeout);
-      fun(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(laterToExecute, delay);
-  };
+const debounce = (func, delay) => {
+  let inDebounce
+  return function() {
+    const context = this
+    const args = arguments
+    clearTimeout(inDebounce)
+    inDebounce = setTimeout(() => func.apply(context, args), delay)
+  }
 }
 
 function add(a, b) {
