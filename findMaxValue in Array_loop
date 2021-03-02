@@ -1,0 +1,22 @@
+let arr = [[12,45,75], [54,45,2],[23,54,75,2]];
+
+function findMaxFromNestedArray(arr) {
+  let max = Number.MIN_SAFE_INTEGER;
+  
+  for (let item of arr) {
+    if(Array.isArray(item)) {
+      let maxInChildArray = findMaxFromNestedArray(item);
+      if (maxInChildArray > max) {
+        max = maxInChildArray;
+      }
+    } else {
+      if (item > max) {
+        max = item;
+      }
+    }
+  }
+  
+  return max;
+}
+
+console.log(findMaxFromNestedArray(arr)) // 75
