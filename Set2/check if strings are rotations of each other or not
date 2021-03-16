@@ -1,0 +1,8 @@
+var str1 = "ABACD"
+var str2 = "CDABA"
+
+function areRotations(str1, str2){
+	return (str1.length === str2.length) && (str1.concat(str2).indexOf(str2)!== -1)
+}
+
+console.log(areRotations(str1,str2)) //o/p: true
