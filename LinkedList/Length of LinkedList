@@ -11,7 +11,7 @@ const ll = {
         }
     }
 }
-function reverseLinkedList(head){
+function findLengthOfLL(head){
     let prev = null;
     let next = null;
     let count = 0
@@ -26,4 +26,4 @@ function reverseLinkedList(head){
 
 return count;
 }
-console.log(reverseLinkedList(ll))  // o/p: 4
+console.log(findLengthOfLL(ll))  // o/p: 4
