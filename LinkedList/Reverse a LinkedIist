@@ -1,0 +1,26 @@
+// Iterative method. Time Complexity O(n), Space complexity O(1)
+const ll = {
+    val: 5,
+    next: {
+        val: 6,
+        next: {
+            val:7,
+            next: null
+        }
+    }
+}
+function reverseLinkedList(head){
+    let prev = null;
+    let next = null;
+
+    while(head !== null){
+        next = head.next;
+        head.next = prev;
+        prev = head;
+        head = next;
+    }
+
+    return prev;
+
+}
+console.log(reverseLinkedList(ll))
