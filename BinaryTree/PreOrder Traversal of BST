@@ -1,0 +1,8 @@
+//Reference: https://levelup.gitconnected.com/how-to-traverse-a-tree-using-javascript-c9a79826e819
+
+preOrder(node) { 
+  console.log(node.val) 
+  node.left && this.preOrder(node.left) 
+  node.right && this.preOrder(node.right) 
+} 
+node.preOrder(node) // 20, 15, 13, 18, 25, 30
