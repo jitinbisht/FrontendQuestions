@@ -1,0 +1,10 @@
+// REference: https://levelup.gitconnected.com/how-to-traverse-a-tree-using-javascript-c9a79826e819
+
+
+function inOrder(root) { 
+   root.left && inOrder(root.left) 
+   console.log(root.val) 
+   root.right && inOrder(root.right) 
+} 
+
+node.inOrder(node) // 13, 15, 18, 20, 25, 30
