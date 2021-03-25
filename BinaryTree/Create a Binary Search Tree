@@ -1,3 +1,4 @@
+// Reference https://medium.com/swlh/implement-binary-search-tree-in-javascript-897dcbcc5616
 class Node {
   constructor(val) {
     this.val = val;
