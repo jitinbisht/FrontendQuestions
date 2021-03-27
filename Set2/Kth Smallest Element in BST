@@ -1,0 +1,15 @@
+//Reference: https://dev.to/alisabaj/finding-the-kth-smallest-element-walking-through-how-to-use-depth-first-search-on-a-binary-search-tree-1boh
+
+Finding the Kth Smallest Element: Walking Through How To Use Depth First Search on a Binary Search Tree
+var kthSmallest = function(root, k) {
+    let sortedArr = []
+    function dfs(node){
+        if(!node) return false;
+        dfs(node.left);
+        sortedArr.push(node.val);
+        dfs(node.right)
+        
+    }
+    dfs(root);
+    return sortedArr[k-1];
+};
