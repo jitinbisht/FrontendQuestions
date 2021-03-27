@@ -1,0 +1,29 @@
+/* A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits,
+and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. 
+Those numbers for which this process ends in 1 are happy numbers.
+
+Return True if n is a happy number, and False if not. */
+
+1. break the number 19 into separate digits of 1 and 9.
+2. square each digit
+3. sum the squares
+4. check if the sum equals 1
+5. if the sum is 1, return true
+6.otherwise, go back to step 1 and repeat.
+
+function isHappyNumber(n, counter=0){
+  let result = false;
+  while(counter<8){
+     const numbersArray = n.toString().split('').map(item => item * item)
+     const sum = numbersArray.reduce((acc,curr) => acc + curr,0);
+     if(sum === 1){
+       result = true
+     } else {
+       counter++;
+       isHappyNumber(sum, counter);
+     }
+  }
+ 
+  return result;
+}
+console.log(isHappyNumber(19)) // true
