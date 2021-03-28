@@ -1,0 +1,20 @@
+//https://dev.to/alisabaj/the-boyer-moore-majority-vote-algorithm-finding-the-majority-element-in-an-array-5dgb
+function majorityElementWithHash(nums) {
+  let map = {}
+  for (let num of nums) {
+    if (map[num]) {
+      map[num]++
+    } else {
+      map[num] = 1
+    }
+  }
+
+  for (let elem of Object.keys(map)) {
+    if (map[elem] > nums.length / 2) {
+      return elem
+    }
+  }
+}
+
+
+console.log(majorityElementsWithHash([3,2,3]) //o/p: 3
