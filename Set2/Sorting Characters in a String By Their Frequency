@@ -1,0 +1,25 @@
+///https://dev.to/alisabaj/sorting-characters-in-a-string-by-their-frequency-46cd
+
+function frequencySort(s) {
+  let hash = {};
+  for (let char of s) {
+    if (hash[char]) {
+      hash[char]++;
+    } else {
+      hash[char] = 1;
+    }
+  }
+  let keys = Object.keys(hash);
+  keys.sort((a, b) => hash[b] - hash[a]);
+  let str = "";
+  keys.forEach((k) => {
+    let count = 0;
+    while (count < hash[k]) {
+      str += k;
+      count++;
+    }
+  });
+  return str;
+}
+
+frequencySort('apple')  //o/p: "ppale"
