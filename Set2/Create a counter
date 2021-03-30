@@ -1,0 +1,19 @@
+const counter = (initValue, stepValue) => {
+  return {
+    val: initValue,
+    next(){
+      this.val+=stepValue;
+    }
+  }
+}
+
+const c = counter(0,2);
+
+var timerFunc = setInterval(()=>{
+  console.log(c.val);
+  c.next();
+  if(c.val > 10){
+    clearInterval(timerFunc);
+  }
+
+},2000)
