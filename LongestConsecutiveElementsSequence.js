@@ -33,4 +33,4 @@ function longestConsecutive(num) {
     return max;
 }
 
-console.log(longestConsecutive([4,3,2,0,8]));
+console.log(longestConsecutive([4,3,2,0,8]));  //o/p: 3  i.e, 2,3,4
