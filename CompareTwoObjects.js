@@ -33,40 +33,45 @@ function shallowCompare(object1, object2) {
 
 2. Deep equality for nested objects.
 
-const hero1 = {
-  name: 'Batman',
-  address: {
-    city: 'Gotham'
-  }
-};
-const hero2 = {
-  name: 'Batman',
-  address: {
-    city: 'Gotham'
-  }
+var obj1 = {
+    numbers: [1, 2, 3],
+    letters: ['a', 'b', 'c'],
+    obj: { prop: 1, name: 'Jitin' },
+    bool: false 
 };
 
-function deepEqual(object1, object2) {
-  const keys1 = Object.keys(object1);
-  const keys2 = Object.keys(object2);
+var obj2 = {
+    numbers: [1, 2, 3],
+    letters: ['a', 'b', 'c'],
+    obj: { prop: 1 },
+    bool: false 
+};
 
-  if (keys1.length !== keys2.length) {
-    return false;
-  }
-  for (const key in keys1) {
-    const val1 = object1[key];
-    const val2 = object2[key];
-    const areObjects = isObject(val1) && isObject(val2);
-    if (
-        areObjects && !deepEqual(val1, val2) ||
-        !areObjects && val1 !== val2
-        ) {
-         return false;
-        }
-   }
-      return true;
- }
+
+Object.compare = function (obj1, obj2) {
+	//Loop through properties in object 1
+	for (var p in obj1) {
+		//Check property exists on both objects
+		if (obj1.hasOwnProperty(p) !== obj2.hasOwnProperty(p)) return false;
  
- function isObject(object) {
-  return object !== null && typeof object === 'object';
-}
+		switch (typeof (obj1[p])) {
+			//Deep compare objects
+			case 'object':
+				if (!Object.compare(obj1[p], obj2[p])) return false;
+				break;
+			//Compare function code
+			case 'function':
+				if (typeof (obj2[p]) == 'undefined' || (p != 'compare' && obj1[p].toString() != obj2[p].toString())) return false;
+				break;
+			//Compare values
+			default:
+				if (obj1[p] != obj2[p]) return false;
+		}
+	}
+ 
+	//Check object 2 for any extra properties
+	for (var p in obj2) {
+		if (typeof (obj1[p]) == 'undefined') return false;
+	}
+	return true;
+};
