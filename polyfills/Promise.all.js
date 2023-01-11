@@ -29,3 +29,7 @@ Promise.myAll = function(promises) {
 Promise.myAll([p1, p2, p3]).then((values) => {
   console.log(values); // [3, 1337, "foo"]
 });
+//ERROR:
+Promise.myAll([p1, p2, Promise.reject("rejected promise")]).then((values) => {
+  console.log(values);
+}).catch(err => console.log(err))  // "rejected promise"
