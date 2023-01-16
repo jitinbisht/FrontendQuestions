@@ -1,4 +1,8 @@
-Promise.allSettled = function (promises) {
+const promise1 = Promise.resolve(3);
+const promise2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+const promises = [promise1, promise2];
+ 
+Promise.allMySettled = function (promises) {
   let mappedPromises = promises.map((p) => {
     return p
       .then((value) => {
@@ -16,3 +20,6 @@ Promise.allSettled = function (promises) {
   });
   return Promise.all(mappedPromises);
 };
+
+Promise.allMySettled(promises).
+  then((results) => results.forEach((result) => console.log(result.status)));
