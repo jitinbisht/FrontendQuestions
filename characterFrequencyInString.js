@@ -34,3 +34,13 @@ const findChars1 = (str) => {
 }
 
 console.log(findChars1(str))
+
+====
+const str = 'CoNgratulations';
+
+const letters = {};
+for (let char of str.toLowerCase()) {
+    letters[char] = letters[char] + 1 || 1;
+}
+
+console.log(letters);
